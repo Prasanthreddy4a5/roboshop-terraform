@@ -4,9 +4,10 @@ default_vpc_route_table_id = "rtb-0b9a867762d6530ba"
 zone_id                    = "Z0021413JFIQEJP9ZO9Z"
 env                        = "dev"
 ssh_ingress_cidr           = ["172.31.85.208/32"]
+monitoring_ingress_cidr    = ["172.31.91.26/32"]
 
 tags = {
-  company_name  = "Prash Tech"
+  company_name  = "ABC Tech"
   business_unit = "Ecommerce"
   project_name  = "robotshop"
   cost_center   = "ecom_rs"
@@ -104,6 +105,7 @@ apps = {
     lb_priority      = 1
     lb_type          = "public"
     parameters       = []
+    tags             = { Monitor_Nginx = "yes" }
   }
   catalogue = {
     instance_type    = "t3.micro"
@@ -114,6 +116,7 @@ apps = {
     lb_priority      = 2
     lb_type          = "private"
     parameters       = ["docdb"]
+    tags             = {}
   }
   user = {
     instance_type    = "t3.micro"
@@ -124,6 +127,7 @@ apps = {
     lb_priority      = 3
     lb_type          = "private"
     parameters       = ["docdb"]
+    tags             = {}
   }
   cart = {
     instance_type    = "t3.micro"
@@ -134,6 +138,7 @@ apps = {
     lb_priority      = 4
     lb_type          = "private"
     parameters       = []
+    tags             = {}
   }
   payment = {
     instance_type    = "t3.micro"
@@ -144,6 +149,7 @@ apps = {
     lb_priority      = 5
     lb_type          = "private"
     parameters       = ["rabbitmq"]
+    tags             = {}
   }
   shipping = {
     instance_type    = "t3.micro"
@@ -154,5 +160,6 @@ apps = {
     lb_priority      = 6
     lb_type          = "private"
     parameters       = ["rds"]
+    tags             = {}
   }
 }
