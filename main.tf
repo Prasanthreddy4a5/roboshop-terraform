@@ -100,7 +100,7 @@ module "alb" {
 #}
 
 module "app" {
-  depends_on = [module.docdb, module.alb, module.elasticache, module.rabbitmq, module.rds]
+  #depends_on = [module.docdb, module.alb, module.elasticache, module.rabbitmq, module.rds]
   source     = "git::https://github.com/prasanthreddy4a5/tf-module-app.git"
 
   tags             = var.tags
