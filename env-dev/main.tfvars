@@ -9,7 +9,7 @@ monitoring_ingress_cidr    = ["172.31.91.26/32"]
 tags = {
   company_name  = "ABC Tech"
   business_unit = "Ecommerce"
-  project_name  = "robotshop"
+  project_name  = "Prash robotshop"
   cost_center   = "ecom_rs"
   created_by    = "terraform"
 }
