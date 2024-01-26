@@ -5,7 +5,7 @@ terraform {
 
 variable "test" {}
 
-output "test" {
+output "ex" {
   value = "var.test"
 }
 
