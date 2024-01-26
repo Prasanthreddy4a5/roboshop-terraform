@@ -6,7 +6,7 @@ terraform {
 variable "test" {}
 
 output "ex" {
-  value = "var.test"
+  value = var.test
 }
 
 #module "vpc" {
