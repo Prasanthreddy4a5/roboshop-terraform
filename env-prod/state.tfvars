@@ -1,3 +1,3 @@
-#bucket = "tf-state-db74"
-#key    = "prod/terraform.tfstate"
-#region = "us-east-1"
+bucket = "prash74"
+key    = "dev/terraform.tfstate"
+region = "us-east-1"
