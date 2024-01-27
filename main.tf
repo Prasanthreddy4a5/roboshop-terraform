@@ -1,13 +1,13 @@
-terraform {
-  backend "s3" {}
-
+module "vpc" {
+  source = "git::https://github.com/prasanthreddy4a5/tf-module-vpc.git"
+  for_each    = var.vpc
+  cidr        = each.value["cidr"]
 }
 
-variable "test" {}
 
-output "ex" {
-  value = var.test
-}
+
+
+
 
 #module "vpc" {
 #  source = "git::https://github.com/prasanthreddy4a5/tf-module-vpc.git"
