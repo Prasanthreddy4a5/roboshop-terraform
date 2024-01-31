@@ -1,3 +1,5 @@
+default_vpc_id = vpc-0066015daedfe34fe
+
 vpc = {
   main = {
     cidr    = "10.0.0.0/16"
