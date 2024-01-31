@@ -1,4 +1,4 @@
-default_vpc_id = vpc-0066015daedfe34fe
+default_vpc_id = "vpc-0066015daedfe34fe"
 
 vpc = {
   main = {
