@@ -1,4 +1,6 @@
 default_vpc_id = "vpc-0066015daedfe34fe"
+default_vpc_cidr = "172.31.0.0/16"
+default_vpc_route_table_id = "rtb-04964fb7eac12e9a2"
 
 vpc = {
   main = {
