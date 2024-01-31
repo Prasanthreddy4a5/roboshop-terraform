@@ -6,10 +6,6 @@ module "vpc" {
   subnets     = each.value["subnets"]
 }
 
-output "Subnets" {
-  value = "module.subnets"
-}
-
 
 
 
