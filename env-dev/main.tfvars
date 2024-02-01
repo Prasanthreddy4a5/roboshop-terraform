@@ -33,6 +33,25 @@ tags = {
   created_by    = "terraform"
 }
 
+alb = {
+  public = {
+    internal = false
+    lb_type  = "application"
+    sg_ingress_cidr = ["0.0.0.0/0"]
+    sg_port = 80
+
+  }
+
+  private = {
+    internal = true
+    lb_type  = "application"
+    sg_ingress_cidr = ["172.31.0.0/16", "10.0.0.0/16"]
+    sg_port = 80
+  }
+
+}
+
+
 
 
 #default_vpc_id             = "vpc-0066015daedfe34fe"
