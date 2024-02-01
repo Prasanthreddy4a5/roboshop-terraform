@@ -1,7 +1,6 @@
 default_vpc_id = "vpc-0066015daedfe34fe"
 default_vpc_cidr = "172.31.0.0/16"
 default_vpc_route_table_id = "rtb-04964fb7eac12e9a2"
-
 vpc = {
   main = {
     cidr    = "10.0.0.0/16"
@@ -22,6 +21,16 @@ vpc = {
     }
   }
 }
+
+tags = {
+  company_name  = "ABC Tech"
+  business_unit = "Ecommerce"
+  project_name  = "Prash robotshop"
+  cost_center   = "ecom_rs"
+  created_by    = "terraform"
+}
+
+
 
 #default_vpc_id             = "vpc-0066015daedfe34fe"
 #default_vpc_cidr           = "172.31.0.0/16"
