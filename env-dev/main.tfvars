@@ -2,7 +2,8 @@ default_vpc_id             = "vpc-0066015daedfe34fe"
 default_vpc_cidr           = "172.31.0.0/16"
 default_vpc_route_table_id = "rtb-04964fb7eac12e9a2"
 env                        = "Dev"
-
+ssh_ingress_cidr           = [" "]                           #(This is workstation IP address CIDR)
+zone_id                    =
 
 vpc = {
   main = {
@@ -26,10 +27,10 @@ vpc = {
 }
 
 tags = {
-  company_name  = "ABC Tech"
+  company_name  = "Prash Tech_DevopS"
   business_unit = "Ecommerce"
   project_name  = "Prash Robotshop"
-  cost_center   = "ecom_rs"
+  cost_center   = "IT"
   created_by    = "terraform"
 }
 
@@ -53,10 +54,46 @@ alb = {
 
 docdb = {
   main = {
-
-
+    backup_retention_period  = 5
+    preferred_backup_window = "07:00-09:00"
+    skip_final_snapshot     = true
+    engine_version          = "4.0.0"
+    engine_family           = "docdb4.0"
+    instance_count          = 1
+    instance_class          = "db.t3.medium"
+  }
 }
 
+rds = {
+  main = {
+    rds_type                = "mysql"
+    db_port                 = 3306
+    engine_family           = "aurora-mysql5.7"
+    engine                  = "aurora-mysql"
+    engine_version          = "5.7.mysql_aurora.2.11.3"
+    backup_retention_period = 5
+    preferred_backup_window = "07:00-09:00"
+    skip_final_snapshot     = true
+    instance_count          = 1
+    instance_class          = "db.t3.small"
+  }
+}
+elasticache = {
+  main = {
+    elasticache_type = "redis"
+    family           = "redis6.x"
+    port             = 6379
+    engine           = "redis"
+    node_type        = "cache.t3.micro"
+    num_cache_nodes  = 1
+    engine_version   = "6.2"
+  }
+}
+
+rabbitmq = {
+  main = {
+    instance_type = "t3.small"
+  }
 }
 
 
