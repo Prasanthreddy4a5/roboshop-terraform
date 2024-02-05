@@ -2,7 +2,7 @@ default_vpc_id             = "vpc-0066015daedfe34fe"
 default_vpc_cidr           = "172.31.0.0/16"
 default_vpc_route_table_id = "rtb-04964fb7eac12e9a2"
 env                        = "Dev"
-ssh_ingress_cidr           = [" "]                           #(This is workstation IP address CIDR)
+ssh_ingress_cidr           = ["172.31.20.57/32"]                           #(This is workstation IP address CIDR)
 zone_id                    = "Z09518242F9S840CK73YV"
 
 vpc = {
