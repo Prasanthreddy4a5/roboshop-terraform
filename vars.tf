@@ -7,9 +7,9 @@ variable "tags" {}
 variable "env" {}
 variable "alb" {}
 variable "docdb" {}
-variable "rds" {}
-variable "elasticache" {}
-variable "rabbitmq" {}
-variable "zone_id" {}
-#variable "apps" {}
-variable "ssh_ingress_cidr" {}
+#variable "rds" {}
+#variable "elasticache" {}
+#variable "rabbitmq" {}
+#variable "zone_id" {}
+##variable "apps" {}
+#variable "ssh_ingress_cidr" {}
