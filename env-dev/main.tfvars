@@ -98,6 +98,7 @@ alb = {
 #    instance_type = "t3.small"
 #  }
 #}
+
 apps = {
   frontend = {
     instance_type    = "t3.micro"
