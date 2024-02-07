@@ -98,6 +98,74 @@ rabbitmq = {
     instance_type = "t3.small"
   }
 }
+apps = {
+  frontend = {
+    instance_type    = "t3.micro"
+    port             = 80
+    desired_capacity = 1
+    max_size         = 3
+    min_size         = 1
+    lb_priority      = 1
+    lb_type          = "public"
+    parameters       = []
+    tags             = { Monitor_Nginx = "yes" }
+  }
+  catalogue = {
+    instance_type    = "t3.micro"
+    port             = 8080
+    desired_capacity = 1
+    max_size         = 3
+    min_size         = 1
+    lb_priority      = 2
+    lb_type          = "private"
+    parameters       = ["docdb"]
+    tags             = {}
+  }
+  user = {
+    instance_type    = "t3.micro"
+    port             = 8080
+    desired_capacity = 1
+    max_size         = 3
+    min_size         = 1
+    lb_priority      = 3
+    lb_type          = "private"
+    parameters       = ["docdb"]
+    tags             = {}
+  }
+  cart = {
+    instance_type    = "t3.micro"
+    port             = 8080
+    desired_capacity = 1
+    max_size         = 3
+    min_size         = 1
+    lb_priority      = 4
+    lb_type          = "private"
+    parameters       = []
+    tags             = {}
+  }
+  payment = {
+    instance_type    = "t3.micro"
+    port             = 8080
+    desired_capacity = 1
+    max_size         = 3
+    min_size         = 1
+    lb_priority      = 5
+    lb_type          = "private"
+    parameters       = ["rabbitmq"]
+    tags             = {}
+  }
+  shipping = {
+    instance_type    = "t3.micro"
+    port             = 8080
+    desired_capacity = 1
+    max_size         = 3
+    min_size         = 1
+    lb_priority      = 6
+    lb_type          = "private"
+    parameters       = ["rds"]
+    tags             = {}
+  }
+}
 
 
 

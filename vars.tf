@@ -11,5 +11,5 @@ variable "rds" {}
 variable "elasticache" {}
 variable "rabbitmq" {}
 variable "zone_id" {}
-#variable "apps" {}
+variable "apps" {}
 variable "ssh_ingress_cidr" {}

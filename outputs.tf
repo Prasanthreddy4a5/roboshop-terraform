@@ -1,6 +1,6 @@
-output "vpc" {
-  value = data.aws_subnets.subnets.ids
-}
+#output "vpc" {
+#  value = data.aws_subnets.subnets.ids
+#}
 
 
 
@@ -10,6 +10,6 @@ output "vpc" {
 
 
 
-#output "alb" {
-#  value = module.alb
-#}
+output "alb" {
+  value = module.alb
+}
