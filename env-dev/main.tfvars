@@ -6,7 +6,7 @@ ssh_ingress_cidr           = ["172.31.94.37/32"]                           #(Thi
 #The CIDR block 172.31.20.57/32 represents a single IP address, as indicated by the subnet mask of /32. This IP address is used to define the source or destination in networking rules, such as security group ingress or egress rules.
 
 #In the context of an EC2 instance, if you have an instance with the CIDR block set to ["172.31.20.57/32"], it means that the instance can be identified by the IP address 172.31.20.57. The /32 indicates that only this specific IP address is included in the CIDR block.
-zone_id                    = "Z09518242F9S840CK73YV"
+zone_id                    = "Z0091075GKAU1IYUYH51"
 
 vpc = {
   main = {
@@ -54,50 +54,50 @@ alb = {
   }
 
 }
-#
-#docdb = {
-#  main = {
-#    backup_retention_period  = 5
-#    preferred_backup_window = "07:00-09:00"
-#    skip_final_snapshot     = true
-#    engine_version          = "4.0.0"
-#    engine_family           = "docdb4.0"
-#    instance_count          = 1
-#    instance_class          = "db.t3.medium"
-#  }
-#}
-#
-#rds = {
-#  main = {
-#    rds_type                = "mysql"
-#    db_port                 = 3306
-#    engine_family           = "aurora-mysql5.7"
-#    engine                  = "aurora-mysql"
-#    engine_version          = "5.7.mysql_aurora.2.11.3"
-#    backup_retention_period = 5
-#    preferred_backup_window = "07:00-09:00"
-#    skip_final_snapshot     = true
-#    instance_count          = 1
-#    instance_class          = "db.t3.small"
-#  }
-#}
-#elasticache = {
-#  main = {
-#    elasticache_type = "redis"
-#    family           = "redis6.x"
-#    port             = 6379
-#    engine           = "redis"
-#    node_type        = "cache.t3.micro"
-#    num_cache_nodes  = 1
-#    engine_version   = "6.2"
-#  }
-#}
-#
-#rabbitmq = {
-#  main = {
-#    instance_type = "t3.small"
-#  }
-#}
+
+docdb = {
+  main = {
+    backup_retention_period  = 5
+    preferred_backup_window = "07:00-09:00"
+    skip_final_snapshot     = true
+    engine_version          = "4.0.0"
+    engine_family           = "docdb4.0"
+    instance_count          = 1
+    instance_class          = "db.t3.medium"
+  }
+}
+
+rds = {
+  main = {
+    rds_type                = "mysql"
+    db_port                 = 3306
+    engine_family           = "aurora-mysql5.7"
+    engine                  = "aurora-mysql"
+    engine_version          = "5.7.mysql_aurora.2.11.3"
+    backup_retention_period = 5
+    preferred_backup_window = "07:00-09:00"
+    skip_final_snapshot     = true
+    instance_count          = 1
+    instance_class          = "db.t3.small"
+  }
+}
+elasticache = {
+  main = {
+    elasticache_type = "redis"
+    family           = "redis6.x"
+    port             = 6379
+    engine           = "redis"
+    node_type        = "cache.t3.micro"
+    num_cache_nodes  = 1
+    engine_version   = "6.2"
+  }
+}
+
+rabbitmq = {
+  main = {
+    instance_type = "t3.small"
+  }
+}
 
 apps = {
   frontend = {
