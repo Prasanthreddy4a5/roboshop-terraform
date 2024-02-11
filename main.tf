@@ -107,7 +107,7 @@ module "rabbitmq" {
 }
 
 module "app" {
-#  depends_on = [module.docdb, module.alb, module.elasticache, module.rabbitmq, module.rds]
+  depends_on = [module.docdb, module.alb, module.elasticache, module.rabbitmq, module.rds]
   source     = "git::https://github.com/prasanthreddy4a5/tf-module-app.git"
 
   tags             = var.tags
@@ -124,7 +124,7 @@ module "app" {
   max_size         = each.value["max_size"]
   min_size         = each.value["min_size"]
   lb_priority      = each.value["lb_priority"]
-#  parameters       = each.value["parameters"]
+  parameters       = each.value["parameters"]
 
   sg_ingress_cidr = local.app_subnets_cidr
   vpc_id          = local.vpc_id
