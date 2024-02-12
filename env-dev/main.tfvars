@@ -1,3 +1,6 @@
+#Common Variables
+
+
 default_vpc_id             = "vpc-0066015daedfe34fe"
 default_vpc_cidr           = "172.31.0.0/16"
 default_vpc_route_table_id = "rtb-04964fb7eac12e9a2"
@@ -7,7 +10,11 @@ ssh_ingress_cidr           = ["172.31.88.94/32"]                           #(Thi
 
 #In the context of an EC2 instance, if you have an instance with the CIDR block set to ["172.31.20.57/32"], it means that the instance can be identified by the IP address 172.31.20.57. The /32 indicates that only this specific IP address is included in the CIDR block.
 zone_id                    = "Z011613123HK78BRRY0DI"
+monitoring_ingress_cidr    =
 
+
+
+#VPC Module
 vpc = {
   main = {
     cidr    = "10.0.0.0/16"
@@ -28,7 +35,7 @@ vpc = {
     }
   }
 }
-
+# Tagging
 tags = {
   company_name  = "Prash Tech_DevopS"
   business_unit = "Ecommerce"
@@ -36,6 +43,8 @@ tags = {
   cost_center   = "IT"
   created_by    = "terraform"
 }
+
+#Application Load Balancer Module
 
 alb = {
   public = {
@@ -55,6 +64,7 @@ alb = {
 
 }
 
+#docdb Module
 docdb = {
   main = {
     backup_retention_period  = 5
@@ -67,6 +77,7 @@ docdb = {
   }
 }
 
+#rds Module
 rds = {
   main = {
     rds_type                = "mysql"
@@ -81,6 +92,8 @@ rds = {
     instance_class          = "db.t3.small"
   }
 }
+
+#docdb Module
 elasticache = {
   main = {
     elasticache_type = "redis"
@@ -93,12 +106,16 @@ elasticache = {
   }
 }
 
+#rabbitmq Module
 rabbitmq = {
   main = {
     instance_type = "t3.small"
   }
 }
 
+
+
+#App module
 apps = {
   frontend = {
     instance_type    = "t3.micro"
