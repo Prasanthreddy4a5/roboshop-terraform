@@ -10,7 +10,7 @@ ssh_ingress_cidr           = ["172.31.88.94/32"]                           #(Thi
 
 #In the context of an EC2 instance, if you have an instance with the CIDR block set to ["172.31.20.57/32"], it means that the instance can be identified by the IP address 172.31.20.57. The /32 indicates that only this specific IP address is included in the CIDR block.
 zone_id                    = "Z011613123HK78BRRY0DI"
-monitoring_ingress_cidr    =
+monitoring_ingress_cidr    =  ["Prometheus Server Ip/32"]                             #(Keep Prometheus Server Private Ip here)
 
 
 
