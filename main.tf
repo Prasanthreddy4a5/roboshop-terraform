@@ -27,6 +27,7 @@ module "alb" {
   vpc_id                     = each.value["internal"] ? local.vpc_id : var.default_vpc_id
   subnets                    = each.value["internal"] ? local.app_subnets : data.aws_subnets.subnets.ids
   sg_port                    = each.value["sg_port"]
+  acm_certifiate_arn         = var.acm_certificate_arn
 
 }
 
@@ -135,6 +136,8 @@ module "app" {
   public_alb_name = lookup(lookup(lookup(module.alb, "public", null), "alb", null), "dns_name", null)
   private_listener = lookup(lookup(lookup(module.alb, "private", null), "listener", null), "arn", null)
   public_listener = lookup(lookup(lookup(module.alb, "public", null), "listener", null), "arn", null)
+
+
 
 }
 
