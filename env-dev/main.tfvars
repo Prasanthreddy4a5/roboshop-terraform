@@ -5,13 +5,14 @@ default_vpc_id             = "vpc-0066015daedfe34fe"
 default_vpc_cidr           = "172.31.0.0/16"
 default_vpc_route_table_id = "rtb-04964fb7eac12e9a2"
 env                        = "dev"
-ssh_ingress_cidr           = ["172.31.88.94/32"]                           #(This is workstation IP address CIDR)
+ssh_ingress_cidr           = ["172.31.88.94/32"]                         #(This is workstation IP address CIDR)
 #The CIDR block 172.31.20.57/32 represents a single IP address, as indicated by the subnet mask of /32. This IP address is used to define the source or destination in networking rules, such as security group ingress or egress rules.
 
 #In the context of an EC2 instance, if you have an instance with the CIDR block set to ["172.31.20.57/32"], it means that the instance can be identified by the IP address 172.31.20.57. The /32 indicates that only this specific IP address is included in the CIDR block.
 zone_id                    = "Z011613123HK78BRRY0DI"
 monitoring_ingress_cidr    =  ["Prometheus Server Ip/32"]                             #(Keep Prometheus Server Private Ip here)
-acm_certificate_arn        = ""
+acm_certificate_arn        =  ""
+kms_key_id                 =  ""
 
 
 
@@ -78,6 +79,7 @@ docdb = {
     instance_class          = "db.t3.medium"
   }
 }
+
 
 #rds Module
 rds = {

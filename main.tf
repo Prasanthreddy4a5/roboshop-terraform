@@ -47,6 +47,7 @@ module "docdb" {
   engine_family              = each.value["engine_family"]
   instance_count             = each.value["instance_count"]
   instance_class             = each.value["instance_class"]
+  kms_key_id                 = each.value["kms_key_id"]
 
 }
 
@@ -92,6 +93,8 @@ module "elasticache" {
   engine_version   = each.value["engine_version"]
 }
 
+
+
 module "rabbitmq" {
   source  = "git::https://github.com/prasanthreddy4a5/tf-module-rabbitmq.git"
   tags    = var.tags
@@ -105,18 +108,25 @@ module "rabbitmq" {
   sg_ingress_cidr  = local.app_subnets_cidr
   instance_type    = each.value["instance_type"]
   ssh_ingress_cidr = var.ssh_ingress_cidr
+  kms_key_id       = var.kms_key_id
 }
+
+
+
+
 
 module "app" {
   depends_on = [module.docdb, module.alb, module.elasticache, module.rabbitmq, module.rds]
   source     = "git::https://github.com/prasanthreddy4a5/tf-module-app.git"
 
-  tags             = merge(var.tags, each.value["tags"])
-  env              = var.env
-  zone_id          = var.zone_id
-  ssh_ingress_cidr = var.ssh_ingress_cidr
-  default_vpc_id   = var.default_vpc_id
+  tags                    = merge(var.tags, each.value["tags"])
+  env                     = var.env
+  zone_id                 = var.zone_id
+  ssh_ingress_cidr        = var.ssh_ingress_cidr
+  default_vpc_id          = var.default_vpc_id
   monitoring_ingress_cidr = var.monitoring_ingress_cidr
+  az                      = var.az
+  kms_key_id              = var.kms_key_id
 
   for_each         = var.apps
   component        = each.key
