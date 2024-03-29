@@ -1,3 +1,7 @@
+default:
+	echo None
+
+
 dev:
 	git pull
 	rm -rf .terraform
@@ -11,7 +15,6 @@ prod:
 	terraform apply -auto-approve -var-file=env-prod/main.tfvars
 
 dev-destroy:
-	git pull
 	rm -rf .terraform
 	terraform init -backend-config=env-dev/state.tfvars
 	terraform destroy -auto-approve -var-file=env-dev/main.tfvars

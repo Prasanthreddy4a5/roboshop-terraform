@@ -163,7 +163,6 @@ module "rabbitmq" {
 #Elastic Kubernetes Service (Amazon EKS) module
 
 #Amazon EKS is a managed service that makes it easy for you to use Kubernetes on AWS without needing to install and operate your own Kubernetes control plane.
-
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 19.0"
@@ -191,11 +190,10 @@ module "eks" {
 
 
   eks_managed_node_groups = {
-    blue = {}
     green = {
       min_size     = 1
       max_size     = 10
-      desired_size = 1
+      desired_size = 3
 
       instance_types = ["t3.large"]
       capacity_type  = "SPOT"
@@ -203,6 +201,15 @@ module "eks" {
   }
 
   tags = var.tags
+}
+
+resource "aws_security_group_rule" "https-to-eks" {
+  from_port         = 443
+  protocol          = "tcp"
+  security_group_id = module.eks.cluster_security_group_id
+  to_port           = 443
+  type              = "ingress"
+  cidr_blocks       = var.ssh_ingress_cidr
 }
 
 
